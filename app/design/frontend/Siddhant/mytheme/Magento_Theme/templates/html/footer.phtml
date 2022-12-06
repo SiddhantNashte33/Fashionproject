@@ -1,0 +1,60 @@
+<?php
+/**
+ * Hyvä Themes - https://hyva.io
+ * Copyright © Hyvä Themes 2020-present. All rights reserved.
+ * This product is licensed per Magento install
+ * See https://hyva.io/license
+ */
+
+declare(strict_types=1);
+
+use Magento\Framework\View\Element\Template;
+use Magento\Framework\Escaper;
+
+/** @var Template $block */
+/** @var Escaper $escaper */
+?>
+<div class="text-gray-700 body-font bg-container-darker border-t border-container-darker shadow pb-16 ">
+    <!-- <div class="my-news-letter flex-col items-center justify-center text-center">
+        <img class="mx-auto" src="<?php echo $this->getViewFileUrl('images/newletter-icon.jpg'); ?>" alt ="plane icon" />
+        <h2 class="2xl pt-5 font-bold tracking-wide ">GET 10% OFF BY SUBSCRIBING TO OUR NEWSLETTER</h2>
+        <div class="mt-6">
+            <input name="email"
+                type="email"
+                required
+                id="newsletter-subscribe"
+                class="border-0 w-80 border-b border-black border-solid text-sm pl-4 h-10"
+                placeholder="<?= $escaper->escapeHtmlAttr(__('Enter your email address')) ?>">
+            <button class=" ml-4 bg-black text-white h-10 px-7">
+                <?= $escaper->escapeHtml(__('Send')) ?>
+            </button>
+        </div>
+        
+
+
+    </div> -->
+    <div class="container py-8 mx-auto">
+        <div class="flex flex-wrap order-first gap-y-16">
+            <?php foreach ($block->getChildNames() as $childName): ?>
+                <?= $childName !== 'footer-copyright' ? $block->getBlockHtml($childName) : '' ?>
+            <?php endforeach; ?>
+        </div>
+    </div>
+    <!-- <div class="bg-container border-t border-b border-container">
+        <div class="container py-6 mx-auto flex items-center sm:flex-row flex-col">
+            <a  href="https://hyva.io"
+                class="flex title-font font-medium items-center md:justify-start justify-center text-gray-900">
+                <span class="ml-3 text-xl text-blue-400">Hyvä Themes Siddhant</span>
+            </a>
+            <p>
+                <?= $block->getChildHtml('copyright') ?>
+            </p>
+        </div>
+    </div> -->
+    <div class ="footer-bottom flex container">
+     <p class="w-1/2"><span>Copyright © 2021 by Humcommerce Reserved.</p></small>
+     <div class="w-1/2 "><img  class= "w-56 h-7 float-right"src="<?php echo $this->getViewFileUrl('images/footer.webp'); ?>" alt ="copyright image" /></div>
+
+    </div>
+</div>
+
