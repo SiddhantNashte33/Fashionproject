@@ -6,6 +6,10 @@ module.exports = hyvaModules.mergeTailwindConfig({
     mode: process.env.TAILWIND_COMPILE_MODE || 'jit', // either 'jit' or 'aot'
     theme: {
         extend: {
+
+            fontFamily: {
+                oswald : ["Oswald"],
+            },
             screens: {
                 'sm': '640px',
                 // => @media (min-width: 640px) { ... }

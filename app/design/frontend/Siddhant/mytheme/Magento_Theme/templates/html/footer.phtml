@@ -14,7 +14,7 @@ use Magento\Framework\Escaper;
 /** @var Template $block */
 /** @var Escaper $escaper */
 ?>
-<div class="text-gray-700 body-font bg-container-darker border-t border-container-darker shadow pb-16 ">
+<div class="text-gray-700 font-oswald shadow ">
     <!-- <div class="my-news-letter flex-col items-center justify-center text-center">
         <img class="mx-auto" src="<?php echo $this->getViewFileUrl('images/newletter-icon.jpg'); ?>" alt ="plane icon" />
         <h2 class="2xl pt-5 font-bold tracking-wide ">GET 10% OFF BY SUBSCRIBING TO OUR NEWSLETTER</h2>
@@ -33,7 +33,7 @@ use Magento\Framework\Escaper;
 
 
     </div> -->
-    <div class="container py-8 mx-auto">
+    <div class="max-w-[740px] lg:max-w-[940px] xl:max-w-[1170px] mx-auto border-t border-black pt-[60px] pb-[25px]">
         <div class="flex flex-wrap order-first gap-y-16">
             <?php foreach ($block->getChildNames() as $childName): ?>
                 <?= $childName !== 'footer-copyright' ? $block->getBlockHtml($childName) : '' ?>
@@ -51,9 +51,9 @@ use Magento\Framework\Escaper;
             </p>
         </div>
     </div> -->
-    <div class ="footer-bottom flex container">
-     <p class="w-1/2"><span>Copyright © 2021 by Humcommerce Reserved.</p></small>
-     <div class="w-1/2 "><img  class= "w-56 h-7 float-right"src="<?php echo $this->getViewFileUrl('images/footer.webp'); ?>" alt ="copyright image" /></div>
+    <div class ="footer-bottom flex flex-col max-w-[740px] lg:max-w-[940px] xl:max-w-[1170px] mx-auto border-t border-gray-200 lg:flex-row lg:justify-between lg:border-transparent py-4">
+     <p class="self-center"><span>Copyright © 2021 by Humcommerce Reserved.</p></small>
+     <div class="self-center mt-2.5"><img  class= "w-56 h-7 "src="<?php echo $this->getViewFileUrl('images/footer.webp'); ?>" alt ="copyright image" /></div>
 
     </div>
 </div>

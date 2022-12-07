@@ -1,5 +1,3 @@
-<h1>This is my testimonial</h1>
-
 <head>
 
 
@@ -23,47 +21,43 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js" integrity="sha512-XtmMtDEcNz2j7ekrtHvOVR4iwwaD6o/FUJe6+Zq+HgcCsk3kj4uSQQR8weQ2QVj1o0Pk6PwYLohm206ZzNfubg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.js" integrity="sha512-WNZwVebQjhSxEzwbettGuQgWxbpYdoLf7mH+25A7sfQbbxKeS5SQ9QBf97zOY4nOlwtksgDA/czSTmfj4DUEiQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
+    <ul class="testslick max-w-[1170px] mx-auto py-[150px] bg-gray-200">
+    <li class="slick-item ">
+    <h2 class="text-center text-[33px] font-oswald font-semibold tracking-wide mb-[60px]">FROM OUR BLOG</h2>
+<div class ="blog-content flex items-center justify-center max-w-[900px] mx-auto ">
+    <div class="blog-image mr-8 w-1/2"><img class="h-[250px] float-right" src="<?php echo $this->getViewFileUrl('images/blog-1.jpg'); ?>" alt ="blog-1" /></div>
+    <div class="blog-info w-1/2">
+         <h3 class="post-title text-3xl font-oswald my-[10px]"><a href="#">How to wear prints in winter</a></h3>
+         <div class="post-date text-[14px]">Feb 12, 2017</div>
+         <div class="short-desc text-[14px] mt-[20px]">Integer scelerisque diam vitae aliquam fringilla. In vitae eros ac libero mattis molestie nec in magna...</div>
+         <button class="bg-black text-white  h-10 px-7 mt-[25px]">READ MORE</button>
+    </div>
 
+</div>
+    </li>
+    <li class="slick-item ">
+    <h2 class="text-center text-[33px] font-oswald font-semibold tracking-wide mb-[60px]">FROM OUR BLOG</h2>
+<div class ="blog-content flex items-center justify-center max-w-[900px] mx-auto ">
+    <div class="blog-image mr-8 w-1/2"><img class="h-[250px] float-right" src="<?php echo $this->getViewFileUrl('images/blog-2.jpg'); ?>" alt ="blog-1" /></div>
+    <div class="blog-info w-1/2">
+         <h3 class="post-title text-3xl font-oswald my-[10px]"><a href="#">How to wear prints in winter</a></h3>
+         <div class="post-date text-[14px]">Feb 12, 2017</div>
+         <div class="short-desc text-[14px] mt-[20px]">Integer scelerisque diam vitae aliquam fringilla. In vitae eros ac libero mattis molestie nec in magna...</div>
+         <button class="bg-black text-white  h-10 px-7 mt-[25px]">READ MORE</button>
+    </div>
 
+</div>
+    </li>
+    
+    
 
+    </ul>
 
-<!-- <div class="slick-exmaple">
-    <h1>Test1</h1>
-    <h1>test2</h1>
-    <h1>Test3</h1>
-    <h1>test4</h1>
-    <h1>Test5</h1>
-    <h1>test6</h1>
-</div> -->
-
-
-<ul class="testslick">
-   <li class="slick-item">
-
-   <h2 class="text-center text-3xl font-semibold mb-5">OUR CLIENTS SAY ABOUT US</h2>
-
-<img src="{{media url=wysiwyg/Juliajohnson.jpg}}" alt="" class="h-24 w-24 mx-auto" />
-
-<p class="text-xl pt-5 text-center">JULIA JOHNSON</p>
-
-<p class="text-base font-normal text-center px-40 mt-7">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua</p>	
-   </li>
-   <li>
-   <h2 class="text-center text-3xl font-semibold mb-5">OUR CLIENTS SAY ABOUT US</h2>
-
-<img src="{{media url=wysiwyg/andyplugins.jpg}}" alt="" class="h-24 w-24 mx-auto rounded-full" />
-
-<p class="text-xl pt-5 text-center">ANDY PLUGINS</p>
-
-<p class="text-base font-normal text-center px-40 mt-7">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua</p>	
-   </li>
-</ul>
-
-<script>
+    <script>
     $('.testslick').slick({
     infinite: true,
     slidesToShow: 1,
-    slidesToScroll: 2,
+    slidesToScroll: 1,
     accessibility: true,
     arrows : true,
    

@@ -27,27 +27,27 @@ $storeConfig = $viewModels->require(StoreConfig::class);
 <head><script src="https://kit.fontawesome.com/c9154b59a4.js" crossorigin="anonymous"></script></head>
 
 <div class=" w-full flex flex-wrap pr-4">
-    <div class="w-full grid grid-cols-1 sm:grid-cols-4 gap-8 xl:col-span-4">
-        <div>
-        <!-- <h4 class="text-md leading-5 font-semibold tracking-wider uppercase">
+    <div class="w-full grid grid-cols-1 md:grid-cols-4 gap-8 xl:col-span-4">
+        <div class="px-[15px]">
+        <!-- <h4 class="text-[15px] leading-5 font-semibold tracking-wider uppercase">
                 Company
             </h4>
             <ul class="mt-4">
                 <li>
-                    <a href="#" class="text-base leading-6">
+                    <a href="#" class="text-sm leading-6">
                         About
                     </a>
                 </li>
                 <li class="mt-4">
                     <a href="<?= $escaper->escapeUrl($block->getUrl('customer/account')) ?>"
-                       class="text-base leading-6">
+                       class="text-sm leading-6">
                         <?= $escaper->escapeHtml(__('My Account')) ?>
                     </a>
                 </li>
                 <?php if (!$customer->customerLoggedIn()): ?>
                     <li class="mt-4">
                         <a href="<?= $escaper->escapeUrl($block->getUrl('sales/guest/form')) ?>"
-                           class="text-base leading-6">
+                           class="text-sm leading-6">
                             <?= $escaper->escapeHtml(__('Orders and Returns')) ?>
                         </a>
                     </li>
@@ -55,128 +55,132 @@ $storeConfig = $viewModels->require(StoreConfig::class);
                 <?php if ($storeConfig->getStoreConfig('catalog/seo/search_terms')): ?>
                     <li class="mt-4">
                         <a href="<?= $escaper->escapeUrl($block->getUrl('search/term/popular')) ?>"
-                           class="text-base leading-6">
+                           class="text-sm leading-6">
                             <?= $escaper->escapeHtml(__('Search Terms')) ?>
                         </a>
                     </li>
+
                 <?php endif; ?>
                 <li class="mt-4">
                     <a href="<?= $escaper->escapeUrl($block->getUrl('contact')) ?>"
-                       class="text-base leading-6">
+                       class="text-sm leading-6">
                         <?= $escaper->escapeHtml(__('Contact')) ?>
                     </a>
                 </li>
             </ul> -->
 
             <!-- My changes -->
-            <h4 class="text-md leading-5 font-semibold tracking-wider uppercase">
+            <h4 class="text-[15px] leading-5 font-semibold tracking-wider uppercase">
                 Customer Services
             </h4>
-            <ul class="mt-4">
+            <ul class="mt-12">
                 <li class="mt-4">
-                    <a href="#" class="text-base leading-6">
+                    <a href="#" class="text-sm leading-6">
                         FAQs
                     </a>
                 </li>
                 <li class="mt-4">
-                    <a href="#" class="text-base leading-6">
+                    <a href="#" class="text-sm leading-6">
                         Shipping
                     </a>
                 </li>
                 <li class="mt-4">
-                    <a href="#" class="text-base leading-6">
+                    <a href="#" class="text-sm leading-6">
                         Returns
                     </a>
                 </li>
                 <li class="mt-4">
-                    <a href="#" class="text-base leading-6">
+                    <a href="#" class="text-sm leading-6">
                         Terms and Conditions
                     </a>
                 </li>
             </ul>
 
         </div>
-        <div>
-            <h4 class="text-md leading-5 font-semibold tracking-wider uppercase">
-                Profile
-            </h4>
-            <ul class="mt-4">
-                <li class="mt-4">
-                    <a href="#" class="text-base leading-6">
-                        My account
-                    </a>
-                </li>
-                <li class="mt-4">
-                    <a href="#" class="text-base leading-6">
-                        Checkout
-                    </a>
-                </li>
-                <li class="mt-4">
-                    <a href="#" class="text-base leading-6">
-                         Order Tracking
-                    </a>
-                </li>
-                <li class="mt-4">
-                    <a href="#" class="text-base leading-6">
-                        Help and Support
-                    </a>
-                </li>
-            </ul>
-        </div>
-        <div>
-            <h4 class="text-md leading-5 font-semibold tracking-wider uppercase">
+
+        <div class="px-[15px]">
+            <h4 class="text-[15px] leading-5 font-semibold tracking-wider uppercase">
                 Social media
             </h4>
-            <ul class="mt-4">
+            <ul class="mt-12">
                 <li class="mt-4">
-                    <a href="#" class="text-base leading-6">
+                    <a href="#" class="text-sm leading-6">
                     <i class="fa-brands fa-twitter"></i> Twitter
                     </a>
                 </li>
                 <li class="mt-4">
-                    <a href="#" class="text-base leading-6">
+                    <a href="#" class="text-sm leading-6">
                     <i class="fa-brands fa-facebook-f"></i> Facebook
                     </a>
                 </li>
                 <li class="mt-4">
-                    <a href="#" class="text-base leading-6">
+                    <a href="#" class="text-sm leading-6">
                     <i class="fa-brands fa-google-plus-g"></i> Google
                     </a>
                 </li>
                 <li class="mt-4">
-                    <a href="#" class="text-base leading-6">
+                    <a href="#" class="text-sm leading-6">
                     <i class="fa-brands fa-instagram"></i> Instagram
                     </a>
                 </li>
                 <li class="mt-4">
-                    <a href="#" class="text-base leading-6">
+                    <a href="#" class="text-sm leading-6">
                     <i class="fa-brands fa-pinterest"></i> Pinterest
                     </a>
                 </li>
             </ul>
         </div>
-        <div>
-            <h4 class="text-md leading-5 font-semibold tracking-wider uppercase">
+
+        <div class="px-[15px]">
+            <h4 class="text-[15px] leading-5 font-semibold tracking-wider uppercase">
+                Profile
+            </h4>
+            <ul class="mt-12">
+                <li class="mt-4">
+                    <a href="#" class="text-sm leading-6">
+                        My account
+                    </a>
+                </li>
+                <li class="mt-4">
+                    <a href="#" class="text-sm leading-6">
+                        Checkout
+                    </a>
+                </li>
+                <li class="mt-4">
+                    <a href="#" class="text-sm leading-6">
+                         Order Tracking
+                    </a>
+                </li>
+                <li class="mt-4">
+                    <a href="#" class="text-sm leading-6">
+                        Help and Support
+                    </a>
+                </li>
+            </ul>
+        </div>
+        
+        <div class="px-[15px]">
+            <h4 class="text-[15px] leading-5 font-semibold tracking-wider uppercase">
                 Contact
             </h4>
-            <ul class="mt-4">
+            <ul class="mt-12">
                 <li class="mt-4">
-                    <a href="#" class="text-base leading-6">
+                    <a href="#" class="text-sm leading-6">
                     <i class="fa-sharp fa-solid fa-house-chimney"></i> 1234 Heaven Stress, Beverly Hill
                     </a>
                 </li>
                 <li class="mt-4">
-                    <a href="#" class="text-base leading-6">
+                    <a href="#" class="text-sm leading-6">
                     <i class="fa-solid fa-phone"></i> Telephone :+01 234 567 89
                     </a>
                 </li>
                 <li class="mt-4">
-                    <a href="#" class="text-base leading-6">
+                    <a href="#" class="text-sm leading-6">
                     <i class="fa-regular fa-envelope"></i> Email: test@email.com 
                     </a>
                 </li>
                 <li class="mt-4">
-                    <a href="#" class="text-base leading-6">
+                    <a href="#" class="text-sm leading-6">
                     <i class="fa-regular fa-clock"></i> 8:00 - 19:00, Monday - Saturday
                     </a>
                 </li>

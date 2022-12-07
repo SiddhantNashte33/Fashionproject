@@ -60,12 +60,16 @@
         <referenceBlock name="page.main.title" remove="true"/>
 
 <!-- my changes -->
-        <referenceContainer name="main.content">
+        <!-- <referenceContainer name="main.content">
           <block class="Magento\Framework\View\Element\Template" name="try" after="-" template="Magento_Theme::html/try.phtml" />
-        </referenceContainer>
+        </referenceContainer> -->
 
         <referenceContainer name="main.content">
           <block class="Magento\Framework\View\Element\Template" name="newsletter" after="try" template="Magento_Theme::html/newsletter.phtml" />
+        </referenceContainer>
+
+        <referenceContainer name="main.content">
+          <block class="Magento\Framework\View\Element\Template" name="blog" before="newsletter" template="Magento_Theme::html/blog.phtml" />
         </referenceContainer>
 
 
