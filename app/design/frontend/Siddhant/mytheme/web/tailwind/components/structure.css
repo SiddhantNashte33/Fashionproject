@@ -149,3 +149,199 @@ body {
         width: 100%;
     }
 }
+
+/* my changes */
+.[data-content-type='tabs'] .tabs-navigation li.tab-header.active {
+    background-color: white;
+}
+
+.[data-content-type='tabs'] .tabs-navigation li.tab-header { 
+    background-color: white;
+}
+
+.[data-content-type='tabs'] .tabs-navigation li.tab-header a.tab-title { 
+    background-color: white;
+}
+
+.item-buttons{
+    position: relative;
+    top: -214px;
+    display: flex;
+    flex-direction: column;
+    left: 107px;
+}
+
+
+.btn-addtocart{
+    padding: 6px;
+    padding-right: 0px;
+    /* margin-right: unset; */
+    position: relative;
+    left: 130px;
+    transition: all .7s ease 0s;
+    border-radius: 0px;
+    background-color: gray;
+    color: white;
+    margin-bottom: 3px;
+    
+}
+
+.btn-addtocart svg{
+    /* margin-right: -8px; */
+}
+
+.btn-wishlist{
+    position: relative;
+        left: 90px;
+        transition: all .7s ease 0s;
+        border-radius: 0px;
+        background-color: gray;
+        color: white;
+        margin-bottom: 3px;
+        /*  */
+        padding: 6px;
+}
+
+.btn-addtocompare{
+    position: relative;
+        left: 60px; 
+        transition: all .7s ease 0s;
+        border-radius: 0px;
+        background-color: gray;
+        color: white;
+        margin-bottom: 3px;
+        /*  */
+        padding: 6px;
+}
+
+
+.products-grid,
+    .new-arrival .block-content,
+    .trending-carousel .glider-contain{
+        display: flex;
+        flex-direction: column-reverse;
+        .carousel-nav{
+            justify-content: end;
+        }
+        .glider-prev,
+        .glider-next{
+                border: 1px solid black;
+                border-radius: 0px;
+        }
+        
+        .item{
+            min-width: 150px;
+            max-width: 270px;
+            z-index: 5;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            margin: 0px 8px;
+            --tw-shadow: none;
+            a{
+                margin: 0;
+                width: 100%;
+                img{
+                    width: 100%;
+                }
+            }
+            &:hover{
+                .btn-addtocompare,
+                .btn-wishlist
+                {
+                    left: 0px;
+                    transition: all .7s ease 0s;
+                }
+                .btn-addtocart{
+                    left: 2px;
+                    transition: all .7s ease 0s;
+                }
+                img:hover{
+                    --tw-shadow: none;
+                }
+                
+            }
+        }
+    }
+
+.fixed_header{
+        transition: all .7s ease 0s;
+        position: fixed;
+        top: 0px;
+        -moz-animation-timing-function: ease-out;
+        -moz-animation-direction: normal;
+        -moz-animation-play-state: running;
+        -moz-animation-fill-mode: forwards;
+        box-shadow: 0 0px 5px 0;
+    }
+
+/* [data-content-type='slide'] .pagebuilder-slide-wrapper{
+    width: 100%;
+    height : auto;
+} */
+
+@media (min-width : 720px){
+   #html-body [data-content-type='slide'] .pagebuilder-slide-wrapper{
+        width: 720px;
+        height : 380px;
+        margin: auto;
+    }
+}
+
+@media (min-width : 980px){
+    #html-body [data-content-type='slide'] .pagebuilder-slide-wrapper{
+        width: 940px;
+        height : 495px;
+        margin: auto;
+    }
+}
+
+@media (min-width : 1200px){
+    #html-body [data-content-type='slide'] .pagebuilder-slide-wrapper{
+        width: 1170px;
+        height : 615px;
+        margin: auto;
+    }
+}
+
+.page-main{
+    margin-top: 0;
+    background-color: white;
+}
+
+/* tabs-section */
+@media (min-width : 720px){
+    .tabs-section{
+         width: 720px;
+         height : 380px;
+         margin-top:80;
+         margin-left: auto;
+         margin-right: auto;
+        
+     }
+ }
+ 
+ @media (min-width : 980px){
+     .tabs-section{
+         width: 940px;
+         height : 495px;
+         margin-left: auto;
+         margin-right: auto;
+         
+     }
+ }
+ 
+ @media (min-width : 1200px){
+     .tabs-section{
+         width: 1170px;
+         height : 615px;
+         margin-left: auto;
+         margin-right: auto;
+         
+     }
+ }
+
+ [data-content-type='tabs'] .tabs-content [data-content-type='tab-item']{
+    padding:0;
+ }
+

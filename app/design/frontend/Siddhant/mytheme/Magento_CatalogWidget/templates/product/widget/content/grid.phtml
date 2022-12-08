@@ -39,7 +39,7 @@ $productListItemViewModel = $viewModels->require(ProductListItem::class);
             </div>
         <?php endif ?>
         <div class="block-content">
-            <div class="mx-auto grid gap-4 <?= $mode === 'grid' ? 'sm:grid-cols-2 lg:grid-cols-4' : 'grid-cols-1' ?>">
+            <div class=" grid gap-4 <?= $mode === 'grid' ? 'sm:grid-cols-2 lg:grid-cols-4' : 'grid-cols-1' ?>">
                 <?php foreach ($items as $item): ?>
                     <?= $productListItemViewModel->getItemHtml(
                         $item,

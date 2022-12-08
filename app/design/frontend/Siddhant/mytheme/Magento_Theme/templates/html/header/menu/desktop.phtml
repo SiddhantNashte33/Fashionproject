@@ -44,7 +44,7 @@ $writer = new \Zend_Log_Writer_Stream(BP . '/var/log/custom.log');
          class="hidden lg:block lg:relative lg:min-h-0 lg:px-8 lg:w-auto lg:pt-0">
         <nav
             class="w-full duration-150 ease-in-out transform flex justify-start
-            w-auto relative min-h-0 transition-display"
+            w-auto relative min-h-0 transition-display font-oswald text=[16px] text-black font-medium"
         >
             <?php foreach ($menuItems as $index => $menuItem): ?>
                 <div class="relative mr-2 level-0"
@@ -54,14 +54,14 @@ $writer = new \Zend_Log_Writer_Stream(BP . '/var/log/custom.log');
                     <span class="flex items-center block p-3 text-md bg-opacity-95">
                        <?php if (!empty($menuItem['childData'])): ?>
 
-                        <a class="w-full py-3 text-base text-gray-700 level-0 no-underline after:content-['\f107']"
+                        <a class="w-full py-3 text-black font-bold level-0 no-underline after:content-['\f107']"
                            href="<?= $escaper->escapeUrl($menuItem['url']) ?>"
                            title="<?= $escaper->escapeHtmlAttr($menuItem['name']) ?>"
                         >
                             <?= $escaper->escapeHtml($menuItem['name']) ?>
                         </a>
                         <?php else: ?>
-                            <a class="w-full py-3 text-base text-gray-700 level-0 no-underline"
+                            <a class="w-full py-3 font-bold text-black level-0 no-underline"
                            href="<?= $escaper->escapeUrl($menuItem['url']) ?>"
                            title="<?= $escaper->escapeHtmlAttr($menuItem['name']) ?>"
                         >

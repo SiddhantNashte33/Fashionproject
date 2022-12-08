@@ -131,22 +131,22 @@ $hideRatingSummary = $block->getData('hide_rating_summary') ?: false;
                 }
             }
         </script>
-        <div class="pt-1 text-gray-900"
+        <div class="pt-1 text-gray-900 text-center"
              x-data="initPriceBox_<?= /** @noEscape */ $uniqueId ?>()"
              @update-prices-<?= (int)$productId ?>.window="updatePrice($event.detail);"
         >
             <?= /* @noEscape */ $productListItemViewModel->getProductPriceHtml($product) ?>
         </div>
 
-        <div class="mt-auto pt-3 flex flex-wrap justify-center items-center">
+        <div class="mt-auto pt-3 flex flex-wrap justify-center items-center item-buttons">
             <?php if ($product->isSaleable()): ?>
-            <button class="w-auto btn btn-primary justify-center text-sm
-                        <?= $viewIsGrid ? 'mr-auto' : 'mr-auto md:mr-0' ?>"
+            <button class="w-9 h-9 text-sm  bg-gray-700 inline-flex flex-shrink-0 items-center justify-center btn-addtocart  text-white hover:text-gray-400
+                        <?= $viewIsGrid ? '' : 'mr-auto md:mr-0' ?>"
                     aria-label="<?= $escaper->escapeHtmlAttr(__('Add to Cart')) ?>"
             >
-                <?= $heroicons->shoppingCartHtml("h-6 w-6 border-current inline", 25, 25) ?>
+                <?= $heroicons->shoppingCartHtml("h-5 w-5 border-current inline", 25, 25) ?>
                 <span class="ml-2 inline <?= $viewIsGrid ? 'md:ml-0 md:hidden lg:ml-2 lg:inline' : '' ?>">
-                    <?= $escaper->escapeHtml(__('Add to Cart')) ?>
+                    <?= $escaper->escapeHtml(__('')) ?>
                 </span>
             </button>
             <?php else: ?>
@@ -159,7 +159,7 @@ $hideRatingSummary = $block->getData('hide_rating_summary') ?: false;
                     @click.prevent="addToWishlist(<?= (int)$productId ?>)"
                     aria-label="<?= $escaper->escapeHtmlAttr(__('Add to Wish List')) ?>"
                     type="button"
-                    class="rounded-full w-9 h-9 bg-gray-200 p-0 border-0 inline-flex flex-shrink-0 items-center justify-center text-gray-500 hover:text-red-600 ml-2">
+                    class="w-9 h-9 text-sm  bg-gray-700 inline-flex flex-shrink-0 items-center justify-center btn-wishlist  text-white hover:text-gray-400">
                 <?= $heroiconsSolid->heartHtml("w-5 h-5", 25, 25) ?>
             </button>
             <?php endif; ?>
@@ -168,7 +168,7 @@ $hideRatingSummary = $block->getData('hide_rating_summary') ?: false;
                     @click.prevent="addToCompare(<?= (int)$productId ?>)"
                     aria-label="<?= $escaper->escapeHtmlAttr(__('Add to Compare')) ?>"
                     type="button"
-                    class="rounded-full w-9 h-9 bg-gray-200 p-0 border-0 inline-flex flex-shrink-0 items-center justify-center text-gray-500 hover:text-yellow-500 ml-2">
+                    class="w-9 h-9 text-sm  bg-gray-700 inline-flex flex-shrink-0 items-center justify-center btn-addtocompare  text-white hover:text-gray-400">
                 <?= $heroicons->scaleHtml("w-5 h-5", 25, 25) ?>
             </button>
             <?php endif; ?>

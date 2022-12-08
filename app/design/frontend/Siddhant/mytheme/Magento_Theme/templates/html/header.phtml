@@ -48,12 +48,12 @@ $showMiniCart = $storeConfig->getStoreConfig(\Magento\Checkout\Block\Cart\Sideba
     }
 </script>
 <div id="header"
-     class="relative z-30 w-full border-b shadow bg-container-lighter border-container-lighter"
+     class="z-30 w-full border-b shadow bg-container-lighter border-container-lighter"
      x-data="initHeader()"
      @keydown.window.escape="searchOpen = false;"
      @private-content-loaded.window="getData(event.detail.data)"
 >
-    <div class="container flex flex-wrap items-center justify-between w-full px-6 py-3 mx-auto mt-0">
+    <div class="container flex flex-wrap items-center justify-between w-full px-6 py-3 mx-auto mt-0 max-w-[740px] lg:max-w-[940px] xl:max-w-[1170px] mx-auto">
         <!--Logo-->
         <?= $block->getChildHtml('logo'); ?>
 
@@ -167,3 +167,12 @@ $showMiniCart = $storeConfig->getStoreConfig(\Magento\Checkout\Block\Cart\Sideba
     <?= $block->getChildHtml('authentication-popup'); ?>
 </div>
 
+<script type="text/javascript">
+     window.addEventListener("scroll", (event) => {
+        if(window.scrollY>100){
+            document.querySelector('#header').classList.add("fixed_header");
+        }else{
+            document.querySelector('#header').classList.remove("fixed_header");
+        }
+});
+</script>
