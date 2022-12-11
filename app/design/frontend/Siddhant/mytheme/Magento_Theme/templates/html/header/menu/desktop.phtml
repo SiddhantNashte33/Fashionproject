@@ -54,7 +54,7 @@ $writer = new \Zend_Log_Writer_Stream(BP . '/var/log/custom.log');
                     <span class="flex items-center block p-3 text-md bg-opacity-95">
                        <?php if (!empty($menuItem['childData'])): ?>
 
-                        <a class="w-full py-3 text-black font-bold level-0 no-underline after:content-['\f107']"
+                        <a class="w-full py-3 text-black font-bold level-0 no-underline nav-menu"
                            href="<?= $escaper->escapeUrl($menuItem['url']) ?>"
                            title="<?= $escaper->escapeHtmlAttr($menuItem['name']) ?>"
                         >

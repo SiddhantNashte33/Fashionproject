@@ -69,7 +69,7 @@ $hideRatingSummary = $block->getData('hide_rating_summary') ?: false;
 <?php if ($product->isSaleable()): ?>
 <form method="post"
     action="<?= $escaper->escapeUrl($productViewModel->getAddToCartUrl($product, ['useUencPlaceholder' => true])) ?>"
-    class="item product product-item product_addtocart_form card card-interactive flex flex-col w-full <?= $viewIsGrid ? '' : 'md:flex-row' ?>"
+    class="item max-h-[450px] product product-item product_addtocart_form card card-interactive flex flex-col w-full <?= $viewIsGrid ? '' : 'md:flex-row' ?>"
     <?php if ($product->getOptions()): ?>
     enctype="multipart/form-data"
     <?php endif; ?>
@@ -91,7 +91,7 @@ $hideRatingSummary = $block->getData('hide_rating_summary') ?: false;
     </a>
     <div class="product-info flex flex-col flex-grow">
         <?php $productNameStripped = $block->stripTags($product->getName(), null, true); ?>
-        <div class="mt-2 mb-1 items-center justify-center text-primary font-semibold text-lg text-center <?= $viewIsGrid ? '' : 'md:text-left' ?>">
+        <div class="mt-[20px] mb-1 items-center uppercase text-primary font-semibold text-[16px] text-center <?= $viewIsGrid ? '' : 'md:text-left' ?>">
             <a class="product-item-link"
                href="<?= $escaper->escapeUrl($product->getProductUrl()) ?>">
                 <?= /* @noEscape */ $catalogOutputHelper->productAttribute($product, $product->getName(), 'name') ?>
@@ -138,7 +138,10 @@ $hideRatingSummary = $block->getData('hide_rating_summary') ?: false;
             <?= /* @noEscape */ $productListItemViewModel->getProductPriceHtml($product) ?>
         </div>
 
-        <div class="mt-auto pt-3 flex flex-wrap justify-center items-center item-buttons">
+        
+    </div>
+
+    <div class="mt-auto pt-3 flex flex-wrap justify-center items-center item-buttons">
             <?php if ($product->isSaleable()): ?>
             <button class="w-9 h-9 text-sm  bg-gray-700 inline-flex flex-shrink-0 items-center justify-center btn-addtocart  text-white hover:text-gray-400
                         <?= $viewIsGrid ? '' : 'mr-auto md:mr-0' ?>"
@@ -176,7 +179,6 @@ $hideRatingSummary = $block->getData('hide_rating_summary') ?: false;
                 <?= $addToBlock->setProduct($product)->getChildHtml() ?>
             <?php endif; ?>
         </div>
-    </div>
 <?php if ($product->isSaleable()): ?>
 </form>
 <?php else: ?>
