@@ -23,12 +23,12 @@
                 <height>160</height>
             </image>
             <image id="category_page_grid" type="small_image">
-                <width>360</width>
-                <height>360</height>
+                <width>270</width>
+                <height>344</height>
             </image>
             <image id="category_page_list" type="small_image">
-                <width>360</width>
-                <height>360</height>
+                <width>270</width>
+                <height>344</height>
             </image>
             <image id="customer_account_my_tags_tag_view" type="small_image">
                 <width>100</width>
@@ -74,9 +74,12 @@
                 <width>140</width>
                 <height>140</height>
             </image>
-            <image id="product_page_image_large" type="image"/>
+            <image id="product_page_image_large" type="image">
+                <width>467</width>
+                <height>596</height>
+            </image>
             <image id="product_page_image_medium" type="image">
-                <width>700</width>
+                <width>549</width>
                 <height>700</height>
             </image>
             <image id="product_page_image_small" type="thumbnail">

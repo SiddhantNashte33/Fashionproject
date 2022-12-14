@@ -14,9 +14,10 @@ use Magento\Catalog\Block\Product\View;
 
 $product = $block->getProduct();
 ?>
+<div class="product-page-container max-w-[740px] lg:max-w-[940px] xl:max-w-[1170px] mx-auto">
 <section class="text-gray-700 body-font">
     <div class="flex pb-6 lg:flex-row flex-col items-center">
-        <div class="flex flex-wrap order-first w-full pl-[17px]">
+        <div class="flex order-first w-full">
             <?= $block->getChildHtml('product.media') ?>
             <?= $block->getChildHtml('product.info') ?>
         </div>
@@ -34,3 +35,5 @@ $product = $block->getProduct();
     <?= $block->getChildHtml('review_list') ?>
     <?= $block->getChildHtml('review_form') ?>
 </section>
+
+</div>

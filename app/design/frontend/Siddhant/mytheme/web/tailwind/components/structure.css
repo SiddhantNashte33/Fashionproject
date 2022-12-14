@@ -824,3 +824,9 @@ background: white;
 .footer-text{
     margin-top: 11px;
 }
+
+
+.configure-form .form-select{
+    border: 1px solid #eee;
+    width: 100%;
+}

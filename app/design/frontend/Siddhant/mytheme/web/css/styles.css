@@ -2298,6 +2298,10 @@ background: white;
 .footer-text{
     margin-top: 11px;
 }
+.configure-form .form-select{
+    border: 1px solid #eee;
+    width: 100%;
+}
 .swatch-attribute .swatch-attribute-options {
   display: flex;
   flex-direction: row;
@@ -3683,6 +3687,9 @@ a.pagebuilder-button-secondary:focus, button.pagebuilder-button-secondary:focus,
 .h-screen {
   height: 100vh;
 }
+.h-\[46px\] {
+  height: 46px;
+}
 .max-h-screen-75 {
   max-height: 75vh;
 }
@@ -4864,6 +4871,10 @@ a.pagebuilder-button-secondary:focus, button.pagebuilder-button-secondary:focus,
   --tw-text-opacity: 1;
   color: rgb(93 93 93 / var(--tw-text-opacity));
 }
+.text-\[\#7b7b7b\] {
+  --tw-text-opacity: 1;
+  color: rgb(123 123 123 / var(--tw-text-opacity));
+}
 .underline {
   text-decoration-line: underline;
 }
@@ -5720,6 +5731,12 @@ fieldset ~ fieldset {
   }
   .lg\:w-auto {
     width: auto;
+  }
+  .lg\:w-5\/12 {
+    width: 41.666667%;
+  }
+  .lg\:w-7\/12 {
+    width: 58.333333%;
   }
   .lg\:max-w-\[940px\] {
     max-width: 940px;

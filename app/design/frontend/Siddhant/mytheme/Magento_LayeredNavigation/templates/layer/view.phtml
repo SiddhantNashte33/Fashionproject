@@ -32,9 +32,9 @@ $heroicons = $viewModels->require(HeroiconsOutline::class);
         <div class="block-title h-10 flex items-center justify-between"
              @click="blockOpen = !blockOpen"
         >
-            <span class="text-primary text-md text-xl md:text-2xl font-semibold uppercase">
+            <!-- <span class="text-primary text-md text-xl md:text-2xl font-semibold uppercase">
                 <?= $escaper->escapeHtml(__('Shop By')) ?>
-            </span>
+            </span> -->
             <span class="py-1 px-1 bg-container-lighter rounded border border-container-darker hidden"
                   :class="{ 'block' : isMobile, 'hidden': !isMobile }">
                 <?= $heroicons->chevronDownHtml(

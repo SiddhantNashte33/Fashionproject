@@ -30,14 +30,14 @@ $attributes = $block->decorateArray($block->getAllowAttributes());
     <div x-data="initConfigurableDropdownOptions_<?= (int) $productId ?>()"
          x-init="init();"
          @private-content-loaded.window="onGetCartData($event.detail.data)"
-         class="mb-6"
+         class="mb-6 configure-form text-[13px]"
     >
-        <h2 class="text-gray-900 text-xl title-font font-medium mb-4">
+        <!-- <h2 class="text-gray-900 text-xl title-font font-medium mb-4">
             <?= $escaper->escapeHtml(__('Options')) ?>
-        </h2>
+        </h2> -->
 
         <?php foreach ($attributes as $attribute): ?>
-        <div class="flex border-t last:border-b  border-gray-300 py-2 w-full items-center">
+        <div class="flex flex-col items-start py-2 w-full">
 
             <label class="label text-gray-700 text-left w-1/2"
                    for="attribute<?= $escaper->escapeHtmlAttr($attribute->getAttributeId()) ?>"
@@ -46,14 +46,14 @@ $attributes = $block->decorateArray($block->getAllowAttributes());
                     <?= $escaper->escapeHtml($attribute->getProductAttribute()->getStoreLabel()) ?>
                 </span>
             </label>
-            <div class="ml-2 text-gray-900 text-left w-1/2">
+            <div class="ml-2 text-[#7b7b7b] w-full h-[46px] text-left ">
                 <select name="super_attribute[<?= $escaper->escapeHtmlAttr($attribute->getAttributeId()) ?>]"
                         id="attribute<?= $escaper->escapeHtmlAttr($attribute->getAttributeId()) ?>"
                         class="form-select super-attribute-select"
                         x-on:change="changeOption(<?= (int) $attribute->getAttributeId() ?>, event.target.value)"
                         required="required">
                     <option value="">
-                        <?= $escaper->escapeHtml(__('Choose an Option...')) ?>
+                        <?= $escaper->escapeHtml(__('--Please select--')) ?>
                     </option>
                     <template
                         x-for="(item, index) in getAllowedAttributeOptions(<?= (int) $attribute->getAttributeId() ?>)"
