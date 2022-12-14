@@ -29,19 +29,24 @@ $attributesViewModel = $viewModels->require(ProductAttributes::class);
 $product = $productViewModel->getProduct();
 
 ?>
-<div class="order-2 w-full mb-6 md:w-7/12 md:pl-5 lg:pl-10 md:py-6 lg:w-1/2 md:mb-0">
-    <p class="hidden md:block text-xl mt-4 mb-3 md:text-3xl text-gray-900 title-font">
+<div class="order-2 w-full mb-6 md:w-7/12 md:pl-5 lg:pl-5  md:py-6 lg:py-0 lg:w-1/2 md:mb-0">
+    <p class="hidden md:block text-[18px] uppercase font-sans mb-3 md:text-[18px] text-gray-900 title-font tracking-[1px] ">
         <strong class="font-semibold md:font-bold"><?= $escaper->escapeHtml($product->getName()) ?></strong>
     </p>
-
-    <div class="my-2 flex">
+    <div class=" w-[34px] h-[3px] bg-[#484747] mb-5 "></div>
+    
+    <div class="my-2 flex flex-col">
         <?= $block->getChildHtml('product.info.review') ?>
     </div>
-
+    <div class=" text-extrabold text-[4px]">
+        <?= $block->getChildHtml("product.info.price") ?>
+    </div>
+    
     <?php if ($shortDescription = $productViewModel->getShortDescription()) { ?>
         <div class="mb-4 leading-relaxed product-description prose"><?= /* @noEscape */ $shortDescription ?></div>
     <?php } ?>
 
+    <div class="flex">
     <div class="flex flex-col sm:flex-row justify-between my-4">
         <?= $block->getChildHtml("product.info.stockstatus") ?>
         <?= $block->getChildHtml("alert.urls") ?>
@@ -51,28 +56,26 @@ $product = $productViewModel->getProduct();
         <?php foreach ($block->getAttributes() as $attributeConfig) {
             $attribute = $attributesViewModel->getAttributeFromLayoutConfig($attributeConfig); ?>
             <?php if ($value = $attribute['value'] ?? null) { ?>
-                <div class="flex border-t border-gray-300 py-2 last:mb-6 last:border-b <?=/* @noEscape */
+                <div class="flex whitespace-nowrap my-[16px] p-0 ml-5 items-center <?=/* @noEscape */
                                                                                           $attribute['value'] ?: "" ?>">
-                    <span class="w-1/2 text-left text-gray-700 product-detail-label">
+                    <span class="w-auto text-left text-black text-[14px] font-sans  product-detail-label">
                         <?= $escaper->escapeHtml($attribute['label']) ?>
                     </span>
-                    <span class="w-1/2 ml-2 text-left text-gray-900 product-detail-value">
+                    <span class="w-1/2 ml-2 text-left text-[13px] text-[#5d5d5d] font-sans lowercase product-detail-value">
                         <?= $escaper->escapeHtml($value) ?>
                     </span>
                 </div>
             <?php } ?>
         <?php } ?>
     </div>
+    </div>
 
     <?= $block->getChildHtml('product.info.form') ?>
 
     <div class="flex flex-col sm:flex-row items-end my-4">
 
-        <div>
-            <?= $block->getChildHtml("product.info.price") ?>
-        </div>
 
-        <div class="flex mt-4 ml-auto sm:mt-0">
+        <div class="flex mt-4  sm:mt-0">
             <?php if ($product->isSaleable()): ?>
                 <?= $block->getChildHtml("product.info.quantity") ?>
                 <?= $block->getChildHtml("product.info.addtocart") ?>
@@ -87,7 +90,7 @@ $product = $productViewModel->getProduct();
         </div>
     <?php endif; ?>
 
-    <div class="flex mt-4 justify-end">
+    <div class="flex mt-4">
         <?= $block->getChildHtml('product.info.addtowishlist'); ?>
         <?= $block->getChildHtml('product.info.addtocompare'); ?>
         <?= $block->getChildHtml('product.info.emailtofriend'); ?>

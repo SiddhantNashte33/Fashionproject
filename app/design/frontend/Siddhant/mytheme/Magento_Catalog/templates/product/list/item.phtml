@@ -45,6 +45,7 @@ $heroicons = $viewModels->require(HeroiconsOutline::class);
 
 /** @var HeroiconsSolid $heroiconsSolid */
 $heroiconsSolid = $viewModels->require(HeroiconsSolid::class);
+$blockObj= $block->getLayout()->createBlock('Magento\Catalog\Block\Product\View\Attributes');
 
 /** @var Magento\Catalog\Model\Product $product */
 $product = $block->getData('product');
@@ -69,7 +70,7 @@ $hideRatingSummary = $block->getData('hide_rating_summary') ?: false;
 <?php if ($product->isSaleable()): ?>
 <form method="post"
     action="<?= $escaper->escapeUrl($productViewModel->getAddToCartUrl($product, ['useUencPlaceholder' => true])) ?>"
-    class="item max-h-[450px] product product-item product_addtocart_form card card-interactive flex flex-col w-full <?= $viewIsGrid ? '' : 'md:flex-row' ?>"
+    class="item product product-item product_addtocart_form  card-interactive flex flex-col w-full <?= $viewIsGrid ? '' : 'md:flex-row' ?>"
     <?php if ($product->getOptions()): ?>
     enctype="multipart/form-data"
     <?php endif; ?>
@@ -89,17 +90,18 @@ $hideRatingSummary = $block->getData('hide_rating_summary') ?: false;
             ->setProductId($productId)
             ->toHtml(); ?>
     </a>
-    <div class="product-info flex flex-col flex-grow">
+    <div class="product-info flex flex-col flex-grow max-h-74  <?= $viewIsGrid ? 'm-20px' : 'm-0' ?>">
+    
         <?php $productNameStripped = $block->stripTags($product->getName(), null, true); ?>
-        <div class="mt-[20px] mb-1 items-center uppercase text-primary font-semibold text-[16px] text-center <?= $viewIsGrid ? '' : 'md:text-left' ?>">
-            <a class="product-item-link"
+        <div class="items-center justify-center text-primary font-semibold text-lg text-center <?= $viewIsGrid ? '' : 'md:text-left' ?>">
+            <a class="product-item-link font-oswald text-sm font-normal uppercase tracking-widest"
                href="<?= $escaper->escapeUrl($product->getProductUrl()) ?>">
                 <?= /* @noEscape */ $catalogOutputHelper->productAttribute($product, $product->getName(), 'name') ?>
             </a>
         </div>
 
         <?php if (!$hideRatingSummary): ?>
-        <div class="py-1 mx-auto <?= $viewIsGrid ? '' : 'md:mx-0 md:w-auto' ?>">
+        <div class=" mx-auto <?= $viewIsGrid ? '' : 'md:mx-0 md:w-auto invisible' ?>">
             <?= $block->getReviewsSummaryHtml($product, 'short') ?>
         </div>
         <?php endif; ?>
@@ -109,7 +111,7 @@ $hideRatingSummary = $block->getData('hide_rating_summary') ?: false;
         <?php endif; ?>
 
         <?php if ($showDescription): ?>
-        <div class="mt-2 mb-1 items-center justify-center text-primary text-center <?= $viewIsGrid ? '' : 'md:text-left' ?>">
+        <div class="mt-2 mb-1 items-center justify-center text-primary text-center  w-[570px] text-[#888] text-[15px] italic font-sans <?= $viewIsGrid ? '' : 'md:text-left' ?>">
             <?= /* @noEscape */ $productViewModel->getShortDescriptionForProduct($product) ?>
         </div>
         <?php endif; ?>
@@ -131,29 +133,26 @@ $hideRatingSummary = $block->getData('hide_rating_summary') ?: false;
                 }
             }
         </script>
-        <div class="pt-1 text-gray-900 text-center"
+        <div class="pt-1 text-gray-900 font-oswald first-child:flex first:justify-center <?= $viewIsGrid ? 'grid_view' : 'mt-2 list_view' ?>" 
              x-data="initPriceBox_<?= /** @noEscape */ $uniqueId ?>()"
              @update-prices-<?= (int)$productId ?>.window="updatePrice($event.detail);"
         >
             <?= /* @noEscape */ $productListItemViewModel->getProductPriceHtml($product) ?>
         </div>
 
-        
-    </div>
-
-    <div class="mt-auto pt-3 flex flex-wrap justify-center items-center item-buttons">
+        <div class="mt-auto pt-3 flex flex-wrap items-center  <?= $viewIsGrid ? 'positioned_tools justify-center' : 'justify-start' ?>">
             <?php if ($product->isSaleable()): ?>
-            <button class="w-9 h-9 text-sm  bg-gray-700 inline-flex flex-shrink-0 items-center justify-center btn-addtocart  text-white hover:text-gray-400
-                        <?= $viewIsGrid ? '' : 'mr-auto md:mr-0' ?>"
+            <button class="w-auto  btn btn-primary justify-center text-sm 
+                        <?= $viewIsGrid ? ' add_to_cart' : 'rounded-none mr-auto md:mr-0 bg-[#4a4a4a] w-[187px] h-[45px] hover:bg-[#5d5d5d] font-sans font-extralight text-[15px] uppercase tracking-wide' ?>"
                     aria-label="<?= $escaper->escapeHtmlAttr(__('Add to Cart')) ?>"
             >
-                <?= $heroicons->shoppingCartHtml("h-5 w-5 border-current inline", 25, 25) ?>
-                <span class="ml-2 inline <?= $viewIsGrid ? 'md:ml-0 md:hidden lg:ml-2 lg:inline' : '' ?>">
-                    <?= $escaper->escapeHtml(__('')) ?>
+                <?= $heroicons->shoppingCartHtml("h-6 w-6 border-current inline", 25, 25) ?>
+                <span class="ml-2 inline <?= $viewIsGrid ? 'md:ml-0 md:hidden lg:ml-2 lg:inline' : 'rounded-none ' ?>">
+                <?= $viewIsGrid ? '' : 'Add to Cart' ?>
                 </span>
             </button>
-            <?php else: ?>
-            <div class="w-auto justify-center <?= $viewIsGrid ? 'mr-auto' : 'mr-auto md:mr-0' ?>">
+            <?php else: ?>      
+            <div class="w-auto justify-center <?= $viewIsGrid ? '' : 'mr-auto md:mr-0' ?>">
                 <?= $block->getChildBlock('stockstatus')->setData('product', $product)->toHtml() ?>
             </div>
             <?php endif; ?>
@@ -162,7 +161,7 @@ $hideRatingSummary = $block->getData('hide_rating_summary') ?: false;
                     @click.prevent="addToWishlist(<?= (int)$productId ?>)"
                     aria-label="<?= $escaper->escapeHtmlAttr(__('Add to Wish List')) ?>"
                     type="button"
-                    class="w-9 h-9 text-sm  bg-gray-700 inline-flex flex-shrink-0 items-center justify-center btn-wishlist  text-white hover:text-gray-400">
+                    class="w-9 h-9 bg-gray-200 p-0 border-0 inline-flex flex-shrink-0 items-center justify-center text-gray-500 hover:text-red-600 ml-2 <?= $viewIsGrid ? 'add_to_wishlist ' : 'rounded-none w-[44px] h-[44px] border-DEFAULT border-slate-300 bg-white' ?>">
                 <?= $heroiconsSolid->heartHtml("w-5 h-5", 25, 25) ?>
             </button>
             <?php endif; ?>
@@ -171,7 +170,7 @@ $hideRatingSummary = $block->getData('hide_rating_summary') ?: false;
                     @click.prevent="addToCompare(<?= (int)$productId ?>)"
                     aria-label="<?= $escaper->escapeHtmlAttr(__('Add to Compare')) ?>"
                     type="button"
-                    class="w-9 h-9 text-sm  bg-gray-700 inline-flex flex-shrink-0 items-center justify-center btn-addtocompare  text-white hover:text-gray-400">
+                    class="w-9 h-9 bg-gray-200 p-0 border-0 inline-flex flex-shrink-0 items-center justify-center text-gray-500 hover:text-yellow-500 ml-2 <?= $viewIsGrid ? 'add_to_compare ' : 'rounded-none w-[44px] h-[44px] border-DEFAULT border-slate-300 bg-white' ?>">
                 <?= $heroicons->scaleHtml("w-5 h-5", 25, 25) ?>
             </button>
             <?php endif; ?>
@@ -179,8 +178,12 @@ $hideRatingSummary = $block->getData('hide_rating_summary') ?: false;
                 <?= $addToBlock->setProduct($product)->getChildHtml() ?>
             <?php endif; ?>
         </div>
+    </div>
 <?php if ($product->isSaleable()): ?>
 </form>
 <?php else: ?>
 </div>
 <?php endif; ?>
+<script>
+    console.log("hehehhe")
+</script>

@@ -12,13 +12,16 @@ use Hyva\Theme\Model\ViewModelRegistry;
 use Hyva\Theme\ViewModel\HeroiconsOutline;
 use Magento\Framework\Escaper;
 use Magento\Framework\View\Element\Template;
+use Magento\Catalog\Block\Product\View\Attributes;
 
 /** @var Template $block */
 /** @var Escaper $escaper */
 /** @var ViewModelRegistry $viewModels */
+/** @var Attributes $attr */
 
 /** @var HeroiconsOutline $heroicons */
 $heroicons = $viewModels->require(HeroiconsOutline::class);
+$blockObj= $block->getLayout()->createBlock('Magento\Catalog\Block\Product\View\Attributes');
 ?>
 
 <script>
@@ -118,48 +121,59 @@ function initCompareSidebarClear() {
 
 <div x-data="initCompareOnCompareSidebar()"
      @private-content-loaded.window="receiveCompareData($event.detail.data)"
-     class="compare-widget mt-8 hidden"
-     :class="{ 'hidden': !(itemCount > 0) }">
-    <div class="border-t border-container mb-6 pt-5">
-        <strong class="block title text-primary font-semibold text-lg">
+     class="compare-widget mb-8 "
+     >
+    <div class=" border-container mb-6 pt-5">
+    
+        <strong class="block title text-primary font-normal text-lg tracking-[1px]">
             <?= $escaper->escapeHtml(__('Compare Products')) ?>
         </strong>
+        <div class=" w-[34px] h-[3px] bg-[#484747] mb-5 "></div>
+        <span 
+            class="text-[#484747] tracking-[1px] text-sm"
+            :class="{ 'hidden': !(itemCount <= 0) }"
+            >You have no items to compare.</span>
     </div>
     <template x-if="itemCount">
-        <ul class="my-4">
+        <span x-html="itemCount" class=" text-base text-[#7d7d7d]"></span><span class=" text-base text-[#7d7d7d] ml-1 " :class="{ 'hidden': itemCount > 1 }">item</span><span class=" text-base text-[#7d7d7d] ml-1 " :class="{ 'hidden': itemCount == 1 }">items</span>
+        <ul class="mb-4">
             <template x-for="product in compareItems">
-                <li class="flex items-start mb-4">
-                    <a :href="product.product_url"
+                <li class="flex items-start mb-2 border-b-[1px] border-[#ddd] p-2 pl-0 ">
+                    <!-- <a :href="product.product_url"
                         class="block mb-3 w-10 h-10 flex-shrink-0 mr-4"
                         :title="product.name">
                         <img :src="product.image" :alt="product.name" loading="lazy">
-                    </a>
-                    <strong class="mr-2 text-sm leading-6 font-normal">
-                        <a :href="product.product_url" :title="product.name" x-html="product.name"></a>
-                    </strong>
+                    </a> -->
                     <button
                         @click.prevent="removeFromCompare(product.id)"
                         aria-label="<?= $escaper->escapeHtmlAttr(__('Remove Product')) ?>"
-                        class="p-1 inline-flex flex-shrink-0 items-center justify-center text-gray-500
-                               hover:text-primary ml-auto"
+                        class="p-1 pl-0 inline-flex flex-shrink-0 items-center justify-center text-gray-500
+                               hover:text-primary "
                         title="<?= $escaper->escapeHtmlAttr(__('Remove Product')) ?>">
                         <?= $heroicons->xHtml('', 20, 20); ?>
                     </button>
+                    <strong class="mr-2 text-sm leading-6 font-normal ml-3 font-sans tracking-[1px] ">
+                        <a :href="product.product_url" :title="product.name" x-html="product.name" class="align-middle" ></a>
+                    </strong>
                 </li>
             </template>
         </ul>
     </template>
-    <div class="flex flex-wrap items-center md:mt-5 space-x-4 text-sm">
+    <div class="flex flex-wrap items-center justify-between md:mt-5 space-x-4 text-sm"
+    :class="{ 'hidden': !(itemCount > 0) }">
         <a href="<?= $escaper->escapeUrl($block->getUrl('catalog/product_compare/index')) ?>"
             title="<?= $escaper->escapeHtml(__('Compare Products')); ?>"
-            class="btn btn-secondary px-4 text-sm">
-            <span><?= $escaper->escapeHtml(__('Compare')); ?></span>
+            class="btn btn-secondary px-4 text-sm bg-[#5d5d5d] rounded-none border-none text-white uppercase font-sans font-bold px-8 ">
+            <span><?= $escaper->escapeHtml(__('Compare')); ?></span>    
         </a>
         <button x-data="initCompareSidebarClear()"
             @click.prevent="clearCompare()"
             aria-label="<?= $escaper->escapeHtmlAttr(__('Remove all Products')) ?>"
             class="p-1 inline-flex flex-shrink-0 items-center justify-center text-gray-500 hover:text-primary ml-auto">
-            <span><?= $escaper->escapeHtml(__('Clear all')); ?></span>
+            <span
+                ><?= $escaper->escapeHtml(__('Clear all')); ?></span>
         </button>
+        <?php $impp = $blockObj->getProduct(); ?>
+        <?php echo json_encode($impp)?>
     </div>
 </div>

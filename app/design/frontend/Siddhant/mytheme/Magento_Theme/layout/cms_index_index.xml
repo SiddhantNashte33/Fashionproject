@@ -68,9 +68,9 @@
           <block class="Magento\Framework\View\Element\Template" name="newsletter" after="try" template="Magento_Theme::html/newsletter.phtml" />
         </referenceContainer>
 
-        <referenceContainer name="main.content">
+        <!-- <referenceContainer name="main.content">
           <block class="Magento\Framework\View\Element\Template" name="blog" before="newsletter" template="Magento_Theme::html/blog.phtml" />
-        </referenceContainer>
+        </referenceContainer> -->
 
 
     </body>
